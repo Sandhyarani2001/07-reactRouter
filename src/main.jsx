@@ -34,27 +34,33 @@ import Github, { githubInfoLoader } from './Components/Github/Github.jsx'
 // ])
 
 // easy way2 ṭo assembly multiple page
-
+   
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout/>}>
-       {/* har ek route nesting ho sakta hai */}
-       <Route path='' element={<Home/>}/>
-       <Route path='/about' element={<About/>}/>
-       <Route path='/contact' element={<Contact/>}/>
-       {/* dynamic value url se kaise lena hai (user) */}
-       <Route path='user/:Userid' element={<User/>}/>
-       {/* how to optimize the api */}
-       <Route 
-       loader={githubInfoLoader}
-       path='github' element={<Github/>}/>
+        <Route path='' element={<Home/>}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path='/contact' element={<Contact/>}/>
+        <Route path='/user/:Userid' element={<User/>}/>
+        <Route 
+        loader={githubInfoLoader}
+        path='github'
+        element={<Github/>}
+          
+        />
     </Route>
   )
 )
 
+
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  {/* how to create router */}
-  <RouterProvider router={router}/>
-  </React.StrictMode>,
+    <RouterProvider router={router}/>
+  </React.StrictMode>
 )
+
+{/* how to create router */}
+{/* har ek route nesting ho sakta hai */}
+{/* dynamic value url se kaise lena hai (user) */}
+{/* how to optimize the api */}
